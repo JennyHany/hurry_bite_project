@@ -1,78 +1,82 @@
 import 'package:flutter/material.dart';
 
 class OnboardingCard extends StatelessWidget {
-  final String image, title, description, buttonText;
-  final Function onPressed;
+  final String image, title, subtitle, description;
   const OnboardingCard({
-    super.key,
-    required this.image,
-    required this.title,
-    required this.description,
-    required this.buttonText,
-    required this.onPressed,
+  super.key,
+  required this.image,
+  required this.title,
+  required this.subtitle,
+  required this.description,
   });
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.sizeOf(context).height,
-        width: MediaQuery.sizeOf(context).width,
+      height: MediaQuery.sizeOf(context).height,
+      width: MediaQuery.sizeOf(context).width,
+      child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children:[
+          children: [
             Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: Image.asset(
-                image,
-                fit: BoxFit.contain,
-              ),
-            ),
-            Column(children:[
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red[400], // Fill color
+              padding: const EdgeInsets.all(50.0),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.4,
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.9,
+                ),
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.contain,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 15.0),
-                child: Text(
+            ),
+            Column(
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'two',
+                    color: Colors.grey[900], // Fill color
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
+                  child: Text(
+                    subtitle,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'two',
+                      color: Colors.grey[900],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 15.0),
+                  child: Text(
                     description,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.grey[900],
-                      fontSize: 22,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: 'Oswald',
-                    )
+                      color: Colors.red[400],
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'one',
+                    ),
+                  ),
                 ),
-              )
-            ],
+              ],
             ),
-            MaterialButton(
-              onPressed: () => onPressed(),
-              color: Colors.red[400],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30), // Optional: rounded corners
-              ),
-              minWidth: 250,  // Set the minimum width to make it longer horizontally
-              height: 50,     // Set the height to adjust the vertical size
-              padding: EdgeInsets.symmetric(horizontal: 0.0),  // Add horizontal padding for more width
-              child: Text(
-                buttonText,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
-            )
-
           ],
-        )
+        ),
+      ),
     );
   }
 }
