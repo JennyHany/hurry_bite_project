@@ -60,9 +60,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/screen2.1.png
-    - assets/screen3.2.png
-    - assets/loc.png
+    - assets/hci1.jpg
+    - assets/hci2.png
+    - assets/hci3.jpg
     - assets/steak.png
     - assets/shrimp.png
     - assets/ham.png
@@ -201,8 +201,8 @@ flutter:
     - assets/hot chocolate.png
     - assets/chai latte.png
     - assets/cappuccino.png
-    - assets/splash_animation.json
-      - assets/steak.png
+    - assets/onlinefood.json
+    - assets/steak.png
     - assets/burger.png
     - assets/pasta.png
     - assets/salad.png
@@ -321,10 +321,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+   - family: one
+     fonts:
+       - asset: fonts/RobotoMono-VariableFont_wght.ttf
+   - family: two
+     fonts:
+       - asset: fonts/Anton-Regular.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
