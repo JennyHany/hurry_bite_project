@@ -124,8 +124,7 @@ class OrderDetailsPage extends StatelessWidget {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        // Navigate to the home page
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/orderdetails');
                       },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(horizontal: 40, vertical: 16),
