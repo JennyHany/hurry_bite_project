@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'orderdetails.dart';
+
 
 class CheckoutScreen extends StatefulWidget {
   final double subtotal;
@@ -127,7 +129,16 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               content: const Text('Your order has been placed successfully!'),
                               actions: [
                                 TextButton(
-                                  onPressed: () => Navigator.of(context).pop(),
+                                  onPressed: () {
+                                    // Close the dialog
+                                    Navigator.of(context).pop();
+
+                                    // Navigate to the OrderDetailsPage
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => OrderDetailsPage()),
+                                    );
+                                  },
                                   child: const Text('OK'),
                                 ),
                               ],
